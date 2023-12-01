@@ -32,7 +32,7 @@ const contactUs = db.sequelize.define(
     },
   },
   {
-    tableName: "contactUs",
+    tableName: "contactus",
     timestamps: false,
   }
 );

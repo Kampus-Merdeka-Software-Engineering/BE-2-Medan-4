@@ -50,7 +50,7 @@ app.get("/return_faq", async (req, res) => {
 });
 
 // Middleware for faq form input validation
-function validateFeedback(req, res, next) {
+function validateFaq(req, res, next) {
   const { ticketId, name, message } = req.body;
   if (!ticketId || !name || !message) {
     return res.status(400).json({ error: "Semua kolom harus diisi." });
@@ -58,11 +58,11 @@ function validateFeedback(req, res, next) {
   next();
 }
 
-// Endpoint to store feedback (POST request)
-app.post("/proses_faq", validateFeedback, async (req, res) => {
+// Endpoint to store feaq (POST request)
+app.post("/proses_faq", validateFaq, async (req, res) => {
   try {
     const { ticketId, name, message } = req.body;
-    // Save feedback to database using Sequelize model
+    // Save faq to database using Sequelize model
     await faq.create({ ticketId, name, message });
     res.status(201).json({ message: "Feedback berhasil disimpan." });
   } catch (error) {
