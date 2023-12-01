@@ -85,6 +85,10 @@ async function startdb() {
 
 startdb();
 
+app.get("/", (req, res) => {
+  res.send("Server Jalan!");
+});
+
 app.listen(port, () => {
   console.log(`Example app listening on port ${port}`);
 });
