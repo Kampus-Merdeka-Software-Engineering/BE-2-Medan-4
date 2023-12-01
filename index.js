@@ -4,10 +4,12 @@ const app = express();
 const port = 3000;
 const contactUs = require("./model/contact.js");
 const faq = require("./model/faq.js");
+const cors = require("cors");
+
 // Middleware
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// app.use(cors());
+app.use(cors());
 
 // Middleware for contact form input validation
 function validateFeedback(req, res, next) {
