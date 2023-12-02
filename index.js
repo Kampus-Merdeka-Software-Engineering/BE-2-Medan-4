@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const contactUs = require("./model/contact.js");
-const faq = require("./model/faq.js");
+const qna = require("./model/qna.js");
 const cors = require("cors");
 
 // Middleware
@@ -35,9 +35,9 @@ app.post("/proses_feedback", validateFeedback, async (req, res) => {
   }
 });
 
-// Get Faq
+// Get qna
 
-app.get("/return_faq", async (req, res) => {
+app.get("/return_qna", async (req, res) => {
   try {
     const data = await faq.findAll();
     res.status(200).json(data);
@@ -49,8 +49,8 @@ app.get("/return_faq", async (req, res) => {
   }
 });
 
-// Middleware for faq form input validation
-function validateFaq(req, res, next) {
+// Middleware for qna form input validation
+function validateQna(req, res, next) {
   const { name, message } = req.body;
   if (!name || !message) {
     return res.status(400).json({ error: "Semua kolom harus diisi." });
@@ -58,12 +58,12 @@ function validateFaq(req, res, next) {
   next();
 }
 
-// Endpoint to store faq (POST request)
-app.post("/proses_faq", validateFaq, async (req, res) => {
+// Endpoint to store qna (POST request)
+app.post("/proses_qna", validateQna, async (req, res) => {
   try {
-    const { ticketId, name, message } = req.body;
-    // Save faq to database using Sequelize model
-    await faq.create({ ticketId, name, message });
+    const { name, message } = req.body;
+    // Save qna to database using Sequelize model
+    await qna.create({ name, message });
     res.status(201).json({ message: "Question berhasil disimpan." });
   } catch (error) {
     res.status(500).json({

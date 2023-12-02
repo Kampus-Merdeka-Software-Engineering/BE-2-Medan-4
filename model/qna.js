@@ -1,9 +1,8 @@
-// models/FAQ.js
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
-const FAQ = db.sequelize.define(
-  "faq",
+const QnA = db.sequelize.define(
+  "qna",
   {
     faqId: {
       type: DataTypes.STRING(12),
@@ -18,11 +17,16 @@ const FAQ = db.sequelize.define(
       type: DataTypes.TEXT,
       allowNull: false,
     },
+    timestamp: {
+      type: DataTypes.DATE,
+      defaultValue: DataTypes.NOW,
+      allowNull: false,
+    },
   },
   {
-    tableName: "faq",
+    tableName: "qna",
     timestamps: false,
   }
 );
 
-module.exports = FAQ;
+module.exports = QnA;
