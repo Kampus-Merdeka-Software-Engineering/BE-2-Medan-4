@@ -4,7 +4,7 @@ const db = require("../db/index.js");
 const QnA = db.sequelize.define(
   "qna",
   {
-    faqId: {
+    id: {
       type: DataTypes.STRING(12),
       primaryKey: true,
       autoIncrement: true,
