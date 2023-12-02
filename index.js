@@ -58,13 +58,13 @@ function validateFaq(req, res, next) {
   next();
 }
 
-// Endpoint to store feaq (POST request)
+// Endpoint to store faq (POST request)
 app.post("/proses_faq", validateFaq, async (req, res) => {
   try {
     const { ticketId, name, message } = req.body;
     // Save faq to database using Sequelize model
     await faq.create({ ticketId, name, message });
-    res.status(201).json({ message: "Feedback berhasil disimpan." });
+    res.status(201).json({ message: "Question berhasil disimpan." });
   } catch (error) {
     res.status(500).json({
       message: "Terjadi kesalahan pada server.",
