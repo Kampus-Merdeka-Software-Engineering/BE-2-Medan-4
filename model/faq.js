@@ -5,9 +5,10 @@ const db = require("../db/index.js");
 const FAQ = db.sequelize.define(
   "faq",
   {
-    ticketId: {
+    faqId: {
       type: DataTypes.STRING(12),
       primaryKey: true,
+      autoIncrement: true,
     },
     name: {
       type: DataTypes.STRING(50),

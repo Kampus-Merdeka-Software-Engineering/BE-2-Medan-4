@@ -51,8 +51,8 @@ app.get("/return_faq", async (req, res) => {
 
 // Middleware for faq form input validation
 function validateFaq(req, res, next) {
-  const { ticketId, name, message } = req.body;
-  if (!ticketId || !name || !message) {
+  const { name, message } = req.body;
+  if (!name || !message) {
     return res.status(400).json({ error: "Semua kolom harus diisi." });
   }
   next();
