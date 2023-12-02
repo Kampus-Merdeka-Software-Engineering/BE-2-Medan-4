@@ -17,15 +17,10 @@ const QnA = db.sequelize.define(
       type: DataTypes.TEXT,
       allowNull: false,
     },
-    timestamp: {
-      type: DataTypes.DATE,
-      defaultValue: DataTypes.NOW,
-      allowNull: false,
-    },
   },
   {
     tableName: "qna",
-    timestamps: false,
+    timestamps: true, // Aktifkan timestamps
   }
 );
 
