@@ -39,7 +39,7 @@ app.post("/proses_feedback", validateFeedback, async (req, res) => {
 
 app.get("/return_qna", async (req, res) => {
   try {
-    const data = await faq.findAll();
+    const data = await qna.findAll();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
