@@ -1,8 +1,8 @@
-// models/ContactUs.js
+// models/contact.js
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
-const contactUs = db.sequelize.define("contactUs", {
+const contact = db.sequelize.define("contact", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -30,4 +30,4 @@ const contactUs = db.sequelize.define("contactUs", {
   },
 });
 
-module.exports = contactUs;
+module.exports = contact;

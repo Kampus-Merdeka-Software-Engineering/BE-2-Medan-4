@@ -1,8 +1,8 @@
-// models/QnA.js
+// models/qna.js
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
-const QnA = db.sequelize.define("QnAs", {
+const qna = db.sequelize.define("qna", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
@@ -18,4 +18,4 @@ const QnA = db.sequelize.define("QnAs", {
   },
 });
 
-module.exports = QnA;
+module.exports = qna;
