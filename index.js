@@ -2,8 +2,8 @@ const db = require("./db/index.js");
 const express = require("express");
 const app = express();
 const port = 3000;
-const contact = require("./model/contact.js");
-const qna = require("./model/qna.js");
+const contactModel = require("./model/contact.js");
+const qnaModel = require("./model/qna.js");
 const cors = require("cors");
 
 // Middleware
@@ -25,7 +25,7 @@ app.post("/proses_feedback", validateFeedback, async (req, res) => {
   try {
     const { firstName, lastName, email, phone, message } = req.body;
     // Save feedback to database using Sequelize model
-    await contact.create({ firstName, lastName, email, phone, message });
+    await contactModel.create({ firstName, lastName, email, phone, message });
     res.status(201).json({ message: "Feedback berhasil disimpan." });
   } catch (error) {
     res.status(500).json({
@@ -39,7 +39,7 @@ app.post("/proses_feedback", validateFeedback, async (req, res) => {
 
 app.get("/return_qna", async (req, res) => {
   try {
-    const data = await qna.findAll();
+    const data = await qnaModel.findAll();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
@@ -63,7 +63,7 @@ app.post("/proses_qna", validateqna, async (req, res) => {
   try {
     const { name, message } = req.body;
     // Save qna to database using Sequelize model
-    await qna.create({ name, message });
+    await qnaModel.create({ name, message });
     res.status(201).json({ message: "Question berhasil disimpan." });
   } catch (error) {
     res.status(500).json({
