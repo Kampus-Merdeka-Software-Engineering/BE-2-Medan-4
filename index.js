@@ -3,7 +3,7 @@ const express = require("express");
 const app = express();
 const port = 3000;
 const contactUs = require("./model/contact.js");
-const qna = require("./model/qna.js");
+const QnA = require("./model/qna.js");
 const cors = require("cors");
 
 // Middleware
@@ -39,7 +39,7 @@ app.post("/proses_feedback", validateFeedback, async (req, res) => {
 
 app.get("/return_qna", async (req, res) => {
   try {
-    const data = await qna.findAll();
+    const data = await QnA.findAll();
     res.status(200).json(data);
   } catch (error) {
     res.status(500).json({
@@ -63,7 +63,7 @@ app.post("/proses_qna", validateQna, async (req, res) => {
   try {
     const { name, message } = req.body;
     // Save qna to database using Sequelize model
-    await qna.create({ name, message });
+    await QnA.create({ name, message });
     res.status(201).json({ message: "Question berhasil disimpan." });
   } catch (error) {
     res.status(500).json({

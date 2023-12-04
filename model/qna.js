@@ -15,11 +15,6 @@ const QnA = db.sequelize.define("qna", {
     type: DataTypes.TEXT,
     allowNull: false,
   },
-  timestamp: {
-    type: DataTypes.DATE,
-    defaultValue: DataTypes.NOW,
-    allowNull: false,
-  },
 });
 
 module.exports = QnA;
