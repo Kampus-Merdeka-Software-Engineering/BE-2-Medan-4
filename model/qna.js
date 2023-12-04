@@ -2,7 +2,7 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
-const QnA = db.sequelize.define("QnA", {
+const QnA = db.sequelize.define("QnAs", {
   id: {
     type: DataTypes.INTEGER,
     primaryKey: true,
