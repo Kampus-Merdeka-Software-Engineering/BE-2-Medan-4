@@ -1,9 +1,10 @@
+// models/QnA.js
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
 const QnA = db.sequelize.define("QnA", {
   id: {
-    type: DataTypes.STRING(12),
+    type: DataTypes.INTEGER,
     primaryKey: true,
     autoIncrement: true,
   },
