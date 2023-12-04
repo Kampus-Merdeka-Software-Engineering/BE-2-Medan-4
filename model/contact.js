@@ -2,39 +2,32 @@
 const { DataTypes } = require("sequelize");
 const db = require("../db/index.js");
 
-const contactUs = db.sequelize.define(
-  "contactUs",
-  {
-    id: {
-      type: DataTypes.INTEGER,
-      primaryKey: true,
-      autoIncrement: true,
-    },
-    firstName: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
-    lastName: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
-    email: {
-      type: DataTypes.STRING(50),
-      allowNull: false,
-    },
-    phone: {
-      type: DataTypes.STRING(20),
-      allowNull: false,
-    },
-    message: {
-      type: DataTypes.TEXT,
-      allowNull: false,
-    },
+const contactUs = db.sequelize.define("contactUs", {
+  id: {
+    type: DataTypes.INTEGER,
+    primaryKey: true,
+    autoIncrement: true,
   },
-  {
-    tableName: "contactus",
-    timestamps: false,
-  }
-);
+  firstName: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  lastName: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  email: {
+    type: DataTypes.STRING(50),
+    allowNull: false,
+  },
+  phone: {
+    type: DataTypes.STRING(20),
+    allowNull: false,
+  },
+  message: {
+    type: DataTypes.TEXT,
+    allowNull: false,
+  },
+});
 
 module.exports = contactUs;
